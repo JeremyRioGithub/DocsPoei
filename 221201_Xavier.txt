@@ -1,0 +1,24 @@
+DOM: structure de la page
+API: interface de programmation d'application
+
+Liaison front-back, impression de persistence
+
+On stocke un identifiant dans un cookie, ce qui permet d'etre reconnu par le serveur à chaque connexion, pour chaque requete. Cela permet au serveur de nous oublier entre deux requetes.
+
+On recoit les données en format Json, car bien adapté au web.
+
+Tous les services publics fournissent des données publiques.
+
+Une API recolte des infos, les traite, fais eventuellement une requete, et renvoie les infos traitées. Elles peut donc prendre des infos d'un site et les renvoyer sur un autre site :D
+Exemple: les places de parking de Lille: https://opendata.lillemetropole.fr/explore/dataset/disponibilite-parkings/api/
+
+un cluster de serveurs repartit les données.
+Le timestamp permet de connaitre la durée de vie de la donnée. La plus récente fait donc foi, et écrase les anciennes.
+
+Pour aspirer un site web, :
+"wget https://siteWeb..."
+
+Une API peut donc utiliser des données stockées sur son propre serveur ou sur le serveur d'un autre site.
+Comme un serveur coute de l'argent, on va apprendre à tirer parti des données d'un autre site. Exemple: tirer et afficher les données d'une piscine pour afficher combien de personnes ont un abonnement valable, combien sont présents actuellement à la piscine, etc.
+
+Pour créer un Spring rapidement, utiliser: https://start.spring.io/

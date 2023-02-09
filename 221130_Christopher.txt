@@ -1,0 +1,64 @@
+Utilité de Spring
+Il faut enregistrer les Beans dans Application Context.xml, c'est le fichier de cfg de Spring.
+Il aura tous les Beans dont nous aurons besoin.
+
+Creer un bean dans conf.xml de type Spring:
+ex: si je veux un bean Bowser, alors l'id est "Bowser" et la class est packageName.spring.Bowser
+
+Injection = permet de créer des objets sans les faire nous-memes. L'injection de dependances permet donc de créer des objets plus facilement.
+Ajouter une arme à un personnage consiste à ajouter une balise constructor-arg à un bean.
+Le constructeur peut etre supprimé, car il est créé par java par defaut.
+Ex: 
+<bean id="arme".../>
+<bean id="personnage...>
+	<constructor-arg ref="arme">
+</bean>
+
+Le setter par injection ? contrairement au constructeur, il ne peut etre supprimé !
+<bean id="personnage...>
+	<property name="name" value="bowser" />
+</bean>
+
+2 SCOPE d'objet: prototype et singleton. Le singleton partage les attributs entre meme instances.
+Le singleton est une copie de l'instance existante, et partage ses attributs avec toute copie d'instance.
+Le prototype a une durée de vie qui correspond au scope de la fonction, et les changements apportés aux attributs n'affecte pas les autres instances ayant le meme nom, car ce sont des instances séparées.
+
+On utilisera singleton si par exemple on veut que l'objet créé soit unique et tout personnage peut changer ses propriétés.
+On utilisera prototype si par exemple chaque personnage avait son propre objet.
+
+ANNOTATIONS: permet de travailler vite. 3 principales: @Component, @Autowired, @Scope.
+@Component permet de créer un beans. ex: lire un bean avec id et classe dans le conf.xml.
+@Autowired permet de créer les attributs automatiquement=null si jamais on affiche le constructeur. Mais comme on n'a pas besoin d'afficher de constructeur, c'est fait en arrière plan.
+@Scope se situe sous le composent @Component.
+@Qualifier permet de specifier le nom du bean à injecter. On ajoute le @Qalifier avec @Autowired juste au dessus de la declaration de l'attribut necessaire à l'instanciation de l'objet.
+
+
+======================
+supprimer module.info
+ajouter une classe personnage
+ajouter une classe arme
+ajouter conf.xml (qui contient les beans, de type des classes, avec les constrctur-arg dans les beans)
+ajouter MyApp.java, qui contient ClassPAthXmlApplicationContext
+Lancer avec clic droit MyApp, Run as Java App.
+======================
+
+
+Controller est la premiere chose à créer quand on fait un projet spring.
+======================
+Apres avoir ajouté le spring-mvc-...xml et le web.xml dans WEB-INF,
+ajouter le dossier view, et y ajouter index.jsp
+ajouter l'objet ControlleurHello.java dans le package xxx, dont xxx est appelé dans spring-mvc....xml
+======================
+
+Comment afficher nom et prenom d'une personne ?
+view formulaire
+view affichage des infos
+commencer par le controller
+======================
+ajouter un formulaire sur la page "userform" qui demande "nom", "prenom" et valide avec un bouton de type submit.
+action="processForm", method="GET"
+======================
+
+Quand on fait un r@RequestMapping("name"), c'est un servlet d'application. Recupere les données de la requete Http.
+Model permet de stocker 
+Methode GET pour afficher les resultats dans la barre adresse web, et methode POST si on ne veut pas que ce soit visible :D

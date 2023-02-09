@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TestGET</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+
+        function monCB( data, status )
+        {
+            $("#test").text( "le temps: " + data + "  Status: " + status);
+        }
+
+        function succesCB( data, status )
+        {
+            console.log( "post OK ! " + data + "   " +status );
+        }
+
+
+        function testGet( )
+        {
+            $.get("http://localhost:8080/meteo", monCB );
+        }
+        
+
+
+        
+        function save( )
+        {
+            valTitre = $("#titre").val();
+            valAuteur = $("#auteur").val();
+
+            console.log( valTitre + " " + valAuteur  );
+            jQuery.ajax(
+                {
+                    headers: { 
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json' 
+                    },
+                    'type': 'POST',
+                    'url': "http://localhost:8080/createLivre",
+                    //'url': "http://localhost:8080/addLivre",
+                    'data': JSON.stringify({ titre : valTitre, auteur : valAuteur  }),
+                    'dataType': 'json',
+                    'success': succesCB
+                    
+                }
+            );
+        }
+
+
+
+
+    </script>
+</head>
+<body>
+    <button onclick="testGet()">METEO</button>
+    <div id="test">________</div>
+    <lr>
+    <input id="titre" placeholder="entrez le titre">
+    <br>
+    <input id="auteur" placeholder="entrez l'auteur">
+    <br>
+    <button onclick="save()">OK</button>
+    <br>
+
+
+
+</body>
+</html>

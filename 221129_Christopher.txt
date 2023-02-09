@@ -1,0 +1,15 @@
+Fichier hbm2ddl.xml permet de créer la table dans SQL (contrairement au main qui permet seulement de remplir la table ou de la lire).
+
+CRUD:
+
+DAO: donne toute la notion de persistence à un seul objet.
+Codé depuis une classe. Un seul DAO par classe pour le moment. Plus tard on pourra faire un par app.
+
+Pour s'assurer que tous les .JAR soient dans le projet, utilisation d'un framework : Spring! (mais d'autres framework existent: JSP, JSF, Struts, etc)
+
+[JPA, JBOSS à définir]
+
+
+Isabelle Frappart:
+Responsable commerciale region occitanie
+

@@ -1,0 +1,11 @@
+L'interet de l'API: donner des infos gratuites ou payantes depuis un site internet (serveur), qui sont récupérables et exploitables par toute entreprise ou particulier.
+
+Il y a des API en Get et en POST. Get plutot pour la lecture, et Post plutot pour le create, on prend la donnée pour créer quelque chose du coté du serveur. Mais bon au final les données sont plus confidentielles.
+
+Commerce electronique chiffré à partir de 2000. Les gouvernements ont permi le chiffrage.
+
+Les sites sont sécurisés, les API sont envoyées en format POST.
+
+Challenge: formulaire, bouton submit pour que données envoyées au travers une API au serveur.
+
+Les micro services: chaque controlleur a une tache attitrée. Dans la formation on est plutot actuellement en controlleur, mais une architecture en micro-controleurs indépendants est plus fiable en cas de chute d'un des serveurs qui fournit un des services. Alors que si un controleur gère l'ensemble des services, si le serveur tombe, tous les srvices tombent. Et donc dans le cas d'une entreprise multiservices (amazone: admin, commandes, compta, livraisons, etc), on peut avoir un service qui tombe sans faire tomber les autres, et si la compta tombe, on peut quand meme livrer ou prendre les commandes.
